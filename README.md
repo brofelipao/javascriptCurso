@@ -7,3 +7,5 @@
 
 Site para consulta de métodos internos de strings: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String
 No site acima, ainda é possível encontrar diversas outras informações sobre javascript.
+
+Sintaxe das "fstrings" no javascript: `texto ${variavel} texto` 
