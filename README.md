@@ -1,5 +1,5 @@
  Git help
- https://stackoverflow.com/questions/32238616/git-push-fatal-origin-does-not-appear-to-be-a-git-repository-fatal-could-n
+ https://stackoverflow.com/questions/git remote -v32238616/git-push-fatal-origin-does-not-appear-to-be-a-git-repository-fatal-could-n
  
  - Curso de javascrit - Aprendizados
 
@@ -11,4 +11,22 @@
 Site para consulta de métodos internos de strings: https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String
 No site acima, ainda é possível encontrar diversas outras informações sobre javascript.
 
-Sintaxe das "fstrings" no javascript: `texto ${variavel} texto` 
+Sintaxe das "fstrings" no javascript: `texto ${variavel} texto`
+
+Requisições utilizando o fetch
+Fetch retorna uma promisse, por isso é necessário utilizar funções de uma maneira assincrona, ou ainda utilizar em conjunto com o "then", que só realiza a tarefa após receber uma resposta
+   fetch("https://api.giphy.com/v1/gifs/search?api_key=HiFBHYHHnndMDNkSzXRHvtaQAy4O7KRR&q=one+piece&limit=20&rating=g&lang=en")
+            .then((response) => {
+                return response.json();
+            })
+            .then((json) => {
+                let data = json.data;
+
+                // Criando uma tag <img> dinamicamente atraves do javascript
+                data.forEach(image => {
+                    let url = image.images.original.url;
+                    let img = document.createElement("img");
+                    img.src = url;
+                    document.body.appendChild(img);
+                });
+            });

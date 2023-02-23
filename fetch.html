@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <script>
+            function verificaCampo(){
+                let busca = document.getElementById("busca").value;
+                let limit = document.getElementById("limit").value;
+                if (busca != "" && limit != ""){
+                    carregaImagem(busca, limit);
+                }
+                else{
+                    window.alert("Preencha os campos para realizar a busca.");
+                }
+            }
+
+            async function carregaImagem(busca, limit){
+                let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=HiFBHYHHnndMDNkSzXRHvtaQAy4O7KRR&q=${busca}&limit=${limit}&rating=g&lang=en`);
+                let json = await response.json();
+
+                let data = json.data;
+                data.forEach(image => {
+                    let url = image.images.original.url;
+                    let img = document.createElement('img');
+                    img.src = url;
+                    document.body.append(img);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <input id="busca" placeholder="Busca">
+            <input id="limit" placeholder="Limite">
+            <button onclick="verificaCampo()">
+                <a>
+                    Buscar imagens
+                </a>
+            </button>
+        </div>
+    </body>
+</html>
