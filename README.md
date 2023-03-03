@@ -30,3 +30,16 @@ Fetch retorna uma promisse, por isso é necessário utilizar funções de uma ma
                     document.body.appendChild(img);
                 });
             });
+
+Além de window.alert, temos outras opções:
+window.confirm('texto'): mostra uma mensagem com opções de confirmar ou cancelar
+window.prompt('texto'): mostra uma mensagem com um input
+
+Conversoes:
+
+Number(n): converte para número
+Number.parseInt(): converte para inteiro
+parseFloat(): converte para float
+String(n): converte para string
+n.toString(): converte para string
+
